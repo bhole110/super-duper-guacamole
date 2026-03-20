@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1809356886689703');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1809356886689703&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --orange: #ff6a00;
+            --bg: #030303;
+        }
+
+        body {
+            margin: 0; padding: 0; background: var(--bg); color: #fff;
+            font-family: 'Montserrat', sans-serif; display: flex; flex-direction: column;
+            align-items: center; min-height: 100vh; overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% -20%, #2a2412 0%, transparent 50%);
+        }
+
+        .live-counter-bar {
+            width: 100%; background: rgba(212, 175, 55, 0.05);
+            padding: 10px 0; font-size: 9px; letter-spacing: 3px;
+            color: #fbe49d; border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            text-transform: uppercase; font-weight: 700; text-align: center;
+        }
+
+        .profile-container { position: relative; margin-top: 30px; display: flex; justify-content: center; }
+        .p-circle {
+            width: 120px; height: 120px; border-radius: 50%;
+            border: 2px solid var(--gold); padding: 5px; 
+            background: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .p-circle img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        
+        /* Fixed Live Tag with Pulse */
+        .live-tag {
+            position: absolute; bottom: 12px; right: 15px; background: #00ff88;
+            width: 14px; height: 14px; border-radius: 50%; 
+            border: 2px solid var(--bg);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+        }
+
+        .brand { font-family: 'Syncopate', sans-serif; font-size: 10px; color: var(--gold); letter-spacing: 5px; margin-top: 20px; font-weight: 700; }
+        .hero { font-size: 22px; font-weight: 900; line-height: 1.2; margin: 15px 0; text-transform: uppercase; text-align: center; padding: 0 20px; }
+
+        .slot-container { width: 280px; margin-bottom: 25px; text-align: center; }
+        .slot-text { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #ff4500; font-weight: 900; }
+        .progress-bg { width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        .progress-fill { width: 90%; height: 100%; background: linear-gradient(90deg, #ff4500, #ff8c00); border-radius: 10px; transition: width 0.8s ease-in-out; }
+
+        .btn-stack { display: flex; flex-direction: column; gap: 15px; align-items: center; width: 100%; }
+        .btn-free {
+            position: relative; width: 80%; max-width: 300px; text-align: center; padding: 18px 0; background: linear-gradient(to right, #ff8c00, #ff4500);
+            border-radius: 50px; color: #fff; text-decoration: none; font-weight: 900; font-size: 14px; text-transform: uppercase;
+            border: 2px dashed #fff; box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3);
+            animation: shake-trigger 5s infinite;
+        }
+        .btn-vip {
+            position: relative; width: 80%; max-width: 300px; text-align: center; padding: 18px 0; background: linear-gradient(145deg, #222, #000);
+            border-radius: 50px; color: var(--gold); text-decoration: none; font-weight: 900; font-size: 14px; text-transform: uppercase;
+            border: 2px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            overflow: hidden;
+        }
+        
+        @keyframes vip-shine { 0% { left: -100%; } 100% { left: 100%; } }
+        .btn-vip::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            animation: vip-shine 3s infinite;
+        }
+
+        @keyframes shake-trigger {
+            0%, 80%, 100% { transform: scale(1); }
+            82%, 86%, 90% { transform: scale(1.05); }
+            84%, 88%, 92% { transform: scale(0.95); }
+        }
+
+        .timer-grid {
+            display: flex; gap: 12px; background: rgba(255,255,255,0.02);
+            padding: 15px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.1);
+            margin: 30px 0 80px;
+        }
+        .t-box { width: 55px; text-align: center; }
+        .t-num { font-size: 24px; font-weight: 900; color: var(--gold); display: block; }
+        .t-lab { font-size: 8px; text-transform: uppercase; opacity: 0.5; display: block; margin-top: 4px; }
+
+        .live-help {
+            position: fixed; bottom: 20px; right: 20px; background: #0a0a0a; border: 1px solid var(--gold);
+            padding: 12px 20px; border-radius: 30px; font-size: 11px; font-weight: 900; color: var(--gold); text-decoration: none; z-index: 1001;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        #popup {
+            position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(300px); 
+            opacity: 0; width: 280px; background: rgba(15,15,15,0.95); border: 1px solid var(--gold); padding: 15px; border-radius: 12px;
+            display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); 
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        #popup.active { transform: translateX(-50%) translateY(0); opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3" preload="auto"></audio>
+
+    <div class="live-counter-bar">🟢 <span id="userCount">954</span> MEMBERS ACTIVE</div>
+
+    <div class="profile-container">
+        <div class="p-circle"><img src="image.jpg" alt="Admin"></div>
+        <div class="live-tag"></div>
+    </div>
+
+    <div class="brand">BDGWIN || MONEY BHAI</div>
+    <h1 class="hero">RECOVER ALL LOSSES<br><span style="color:var(--orange)">95% ACCURATE SHOTS</span> 🔥</h1>
+
+    <div class="slot-container">
+        <div class="slot-text">⚠️ ONLY <span id="slotCount">12</span> VIP SLOTS LEFT</div>
+        <div class="progress-bg"><div class="progress-fill" id="bar" style="width: 90%;"></div></div>
+    </div>
+
+    <div class="btn-stack">
+        <a href="https://t.me/+1CTSi_xEacFhOWM1" class="btn-free" onclick="playSound()">✈️ JOIN FREE CHANNEL</a>
+        <a href="https://t.me/+1CTSi_xEacFhOWM1" class="btn-vip" onclick="playSound()">💎 JOIN VIP ACCESS</a>
+    </div>
+
+    <div class="timer-grid">
+        <div class="t-box"><span class="t-num" id="days">00</span><span class="t-lab">DAYS</span></div>
+        <div class="t-box"><span class="t-num" id="hours">00</span><span class="t-lab">HRS</span></div>
+        <div class="t-box"><span class="t-num" id="minutes">00</span><span class="t-lab">MIN</span></div>
+        <div class="t-box"><span class="t-num" id="seconds">00</span><span class="t-lab">SEC</span></div>
+    </div>
+
+    <a href="https://t.me/richestshreya" class="live-help">💬 VIP SUPPORT</a>
+
+    <div id="popup">
+        <div style="font-size:24px">🏆</div>
+        <div>
+            <span style="font-weight:900; color:var(--gold); font-size:13px; display:block;" id="u">Rahul****</span>
+            <span style="font-size:12px; color:#ddd;" id="a">Won ₹12,500 on Wingo!</span>
+        </div>
+    </div>
+
+    <script>
+        // Sound Fix
+        function playSound() {
+            const sound = document.getElementById('clickSound');
+            sound.currentTime = 0;
+            sound.play().catch(e => console.log("Interaction needed for sound"));
+        }
+
+        // TIMER FIX: Added Days and correct reset
+        function updateTimer() {
+            const now = new Date();
+            // Target: Midnight tonight
+            const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+            
+            function tick() {
+                const current = new Date().getTime();
+                const diff = target - current;
+
+                if (diff <= 0) {
+                    location.reload(); // Refresh to reset timer
+                    return;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = d < 10 ? "0"+d : d;
+                document.getElementById("hours").innerText = h < 10 ? "0"+h : h;
+                document.getElementById("minutes").innerText = m < 10 ? "0"+m : m;
+                document.getElementById("seconds").innerText = s < 10 ? "0"+s : s;
+            }
+            tick();
+            setInterval(tick, 1000);
+        }
+        updateTimer();
+
+        // SLOT LOGIC: Smoother transition
+        let slots = 12;
+        let barWidth = 90;
+        setInterval(() => {
+            if (slots > 3) {
+                slots--; 
+                barWidth -= 6;
+            } else {
+                slots = 15; 
+                barWidth = 95;
+            }
+            document.getElementById('bar').style.width = barWidth + "%";
+            document.getElementById('slotCount').innerText = slots;
+        }, 7000);
+
+        // MEMBER COUNTER
+        let memCount = 954;
+        setInterval(() => {
+            memCount += Math.floor(Math.random() * 5);
+            document.getElementById('userCount').innerText = memCount;
+        }, 4000);
+
+        // WINNER POPUPS
+        const names = ["Rahul****", "Nitin****", "Avi****", "Pooja****", "Karan****", "Sandeep****", "Arun****", "Soniya****"];
+        const amounts = ["₹5,500", "₹14,000", "₹3,200", "₹9,500", "₹22,000", "₹18,700"];
+        
+        function showWin() {
+            const p = document.getElementById('popup');
+            document.getElementById('u').innerText = names[Math.floor(Math.random()*names.length)];
+            document.getElementById('a').innerText = `Won ${amounts[Math.floor(Math.random()*amounts.length)]} on Wingo!`;
+            p.classList.add('active');
+            setTimeout(() => p.classList.remove('active'), 4000);
+        }
+        setInterval(showWin, 9000);
+        setTimeout(showWin, 2500);
+    </script>
+</body>
+</html>
